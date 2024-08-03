@@ -50,8 +50,8 @@ export const addStuff = (address, fields) => async (dispatch) => {
     try {
         const result = await axios.post(`${process.env.REACT_APP_BASE_URL}/${address}`, fields, {
             // SYNTAX ERROR ... IS REMOVED
-            headers: { 'Content-Type': 'application/json' },
-        });
+            headers: { 'Content-Type': 'application/json' }
+        })
 
         if (result.data.message) {
             dispatch(authFailed(result.data.message));
@@ -67,7 +67,7 @@ export const updateStuff = (fields, id, address) => async (dispatch) => {
 
     try {
         const result = await axios.put(`${process.env.REACT_APP_BASE_URL}/${address}/${id}`, fields, {
-        
+
         });
         if (result.data.message) {
             dispatch(updateFailed(result.data.message));
@@ -79,7 +79,7 @@ export const updateStuff = (fields, id, address) => async (dispatch) => {
     } catch (error) {
         dispatch(getError(error));
     }
-}
+}; //SYNTAX ERROR for ;
 
 export const deleteStuff = (id, address) => async (dispatch) => {
     dispatch(getRequest());
@@ -94,17 +94,22 @@ export const deleteStuff = (id, address) => async (dispatch) => {
     } catch (error) {
         dispatch(getError(error));
     }
-}
+}; //SYNTAX ERROR for ;
 
 export const updateCustomer = (fields, id) => async (dispatch) => {
     dispatch(updateCurrentUser(fields));
-    try {
-        await axios.put(`${process.env.REACT_APP_BASE_URL}/CustomerUpdate/${id}`, fields);
-        dispatch(stuffUpdated());
-    } catch (error) {
-        dispatch(getError(error));
-    }
+    await axios.put(`${process.env.REACT_APP_BASE_URL}/CustomerUpdate/${id}`, fields);
 };
+
+        dispatch(stuffUpdated());
+
+      } catch (error) {
+
+        dispatch(getError(error));
+
+    }
+
+    }
 
 export const getProductsbySeller = (id) => async (dispatch) => {
     dispatch(getRequest());
@@ -120,7 +125,7 @@ export const getProductsbySeller = (id) => async (dispatch) => {
     } catch (error) {
         dispatch(getError(error));
     }
-}
+}; //SYNTAX ERROR for ;
 
 export const getProducts = () => async (dispatch) => {
     dispatch(getRequest());
@@ -153,7 +158,7 @@ export const getProductDetails = (id) => async (dispatch) => {
     } catch (error) {
         dispatch(getError(error));
     }
-}
+}; //SYNTAX ERROR for ;
 
 export const getCustomers = (id) => async (dispatch) => {
     dispatch(getRequest());
@@ -170,7 +175,7 @@ export const getCustomers = (id) => async (dispatch) => {
     } catch (error) {
         dispatch(getError(error));
     }
-}
+}; //SYNTAX ERROR for ;
 
 export const getSpecificProducts = (id, address) => async (dispatch) => {
     dispatch(getRequest());
@@ -186,7 +191,7 @@ export const getSpecificProducts = (id, address) => async (dispatch) => {
     } catch (error) {
         dispatch(getError(error));
     }
-}
+}; //SYNTAX ERROR for ;
 
 export const getSearchedProducts = (address, key) => async (dispatch) => {
     dispatch(getRequest());
@@ -203,4 +208,4 @@ export const getSearchedProducts = (address, key) => async (dispatch) => {
     } catch (error) {
         dispatch(getError(error));
     }
-}
+}; //SYNTAX ERROR for ;
